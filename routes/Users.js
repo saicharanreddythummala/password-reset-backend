@@ -30,7 +30,7 @@ route.get("/", async (req, res, next) => {
       to: `${email}`,
       subject: `Nodemailer`,
       text: "Mail from nodemailer",
-      html: `Click here to <a href="http://${req.headers.host}/users/verify/?token=${randString}" target="blank">Verify</a> your email`,
+      html: `Click here to <a href="https://password-reset-backend1.herokuapp.com/users/verify/?token=${randString}" target="blank">Verify</a> your email`,
     };
 
     mail(mailerOptions);
@@ -48,7 +48,7 @@ route.get("/verify", async (req, res) => {
     res.status(400).send({ msg: "account does not exist" });
   }
 
-  res.status(200).redirect(`http://${req.headers.host}/reset-password/${user._id}`);
+  res.status(200).redirect(`https://password-reset-backend1.herokuapp.com/reset-password/${user._id}`);
 });
 
 //update the password entered by user in Db
